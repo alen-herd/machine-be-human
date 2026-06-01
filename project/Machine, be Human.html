@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Machine, be Human — intern</title>
+<link rel="icon" href="assets/herd-monogram-coral.png" />
+<link rel="stylesheet" href="mbh.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="image-slot.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="sections-a.jsx"></script>
+<script type="text/babel" src="sections-b.jsx"></script>
+<script type="text/babel" src="sections-c.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "clientQuote": "Onze groep is bezig met een AI-label. Zou je het interessant vinden om hierin meegenomen te worden? We willen onze klanten juist op het gebied van AI kunnen helpen naar hun volgende stap.",
+  "askHeadline": "Kom donderdag. Wees scherp. Denk mee."
+}/*EDITMODE-END*/;
+
+function useReveal() {
+  React.useEffect(() => {
+    const els = Array.from(document.querySelectorAll('.reveal:not(.is-in)'));
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(e => e.classList.add('is-in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(e => io.observe(e));
+    return () => io.disconnect();
+  });
+}
+
+function useScrollChrome() {
+  React.useEffect(() => {
+    const prog = document.getElementById('navProgress');
+    const sections = ['waarom','wat','positie','entry','diensten','kudde','serieus','team','tijdlijn','klanten','open'];
+    const onScroll = () => {
+      const h = document.documentElement;
+      const sc = h.scrollTop || document.body.scrollTop;
+      const max = (h.scrollHeight - h.clientHeight) || 1;
+      if (prog) prog.style.width = Math.min(100, (sc / max) * 100) + '%';
+      // active link
+      let current = null;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      }
+      document.querySelectorAll('[data-navlink]').forEach(a => {
+        a.classList.toggle('is-active', a.getAttribute('data-navlink') === '#' + current);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+}
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  useReveal();
+  useScrollChrome();
+  return (
+    <React.Fragment>
+      <Nav />
+      <main>
+        <Opener t={t} />
+        <WaaromNu />
+        <WatWeBouwen />
+        <WaaromWij />
+        <EntryPoints />
+        <Diensten />
+        <WatHetOplevert />
+        <Serieus />
+        <WieRunt />
+        <Tijdlijn />
+        <Klanten t={t} />
+        <OpenEnAsk t={t} />
+      </main>
+      <Footer />
+
+      <TweaksPanel>
+        <TweakSection label="Kernzinnen herschrijven" />
+        <TweakText label="Zin voor klanten (sectie 11)" value={t.clientQuote} multiline
+          onChange={(v) => setTweak('clientQuote', v)} />
+        <TweakText label="Kop van de ask (sectie 12)" value={t.askHeadline}
+          onChange={(v) => setTweak('askHeadline', v)} />
+      </TweaksPanel>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+<!-- direct-edit style overrides land here -->
+<style id="__om-edit-overrides"></style>
+</body>
+</html>

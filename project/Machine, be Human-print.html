@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Machine, be Human — intern</title>
+<link rel="icon" href="assets/herd-monogram-coral.png" />
+<link rel="stylesheet" href="mbh.css" />
+<style>
+@media print {
+  html, body { background:#101327 !important; }
+  * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+
+  @page { size: A4 portrait; margin: 12mm 10mm; }
+
+  /* show everything: kill scroll-reveal + animations */
+  .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+  *, *::before, *::after { animation:none !important; transition:none !important; }
+
+  /* drop interactive chrome */
+  .nav, .hero__scroll, .nav__progress, #__om-tweaks, .tweaks-panel,
+  [data-tweaks-root], .copy-btn { display:none !important; }
+
+  /* expand all accordions so their content prints */
+  .disclosure__panel, .open-q__panel, .entry__panel, .svc__panel {
+    max-height:none !important; overflow:visible !important;
+  }
+  .disclosure__icon, .open-q__icon, .entry__toggle, .svc__plus { display:none !important; }
+
+  /* tame the full-viewport hero so it doesn't eat a whole blank page */
+  .hero { min-height:0 !important; padding-block:24px 36px !important; }
+  .hero__mono { opacity:.06 !important; }
+
+  /* paging: each major section starts fresh, cards stay intact */
+  .section { break-before:page; padding-block:32px !important; border-top:0 !important; }
+  .hero { break-before:auto; }
+  .who-card, .duo-card, .ep-card, .ep-new, .pain-card, .svc2, .wiifm-col,
+  .tldr-card, .person, .commit, .tlv__item, .open-q, .say-quote,
+  .ask, .ask-band, .dashboard-note, .discovery-band, .statement-band {
+    break-inside:avoid;
+  }
+  .footer { break-before:page; }
+
+  /* link to next page should not orphan a heading */
+  .sec-title, .wiifm-col__head, .svc-head { break-after:avoid; }
+}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="image-slot.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="sections-a.jsx"></script>
+<script type="text/babel" src="sections-b.jsx"></script>
+<script type="text/babel" src="sections-c.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "teamVariant": "B",
+  "clientQuote": "Onze groep is bezig met een AI-label. Zou je het interessant vinden om hierin meegenomen te worden? We willen onze klanten juist op het gebied van AI kunnen helpen naar hun volgende stap.",
+  "seriousKicker": "Dit is geen experiment. Geen hobbyproject. Geen \u201cwe kijken hoe het loopt\u201d.",
+  "askHeadline": "Kom donderdag. Wees scherp. Denk mee."
+}/*EDITMODE-END*/;
+
+function useReveal() {
+  React.useEffect(() => {
+    const els = Array.from(document.querySelectorAll('.reveal:not(.is-in)'));
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(e => e.classList.add('is-in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(e => io.observe(e));
+    return () => io.disconnect();
+  });
+}
+
+function useScrollChrome() {
+  React.useEffect(() => {
+    const prog = document.getElementById('navProgress');
+    const sections = ['waarom','wat','positie','entry','diensten','kudde','team','serieus','tijdlijn','klanten','open'];
+    const onScroll = () => {
+      const h = document.documentElement;
+      const sc = h.scrollTop || document.body.scrollTop;
+      const max = (h.scrollHeight - h.clientHeight) || 1;
+      if (prog) prog.style.width = Math.min(100, (sc / max) * 100) + '%';
+      // active link
+      let current = null;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      }
+      document.querySelectorAll('[data-navlink]').forEach(a => {
+        a.classList.toggle('is-active', a.getAttribute('data-navlink') === '#' + current);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+}
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  useReveal();
+  useScrollChrome();
+  return (
+    <React.Fragment>
+      <Nav />
+      <main>
+        <Opener t={t} />
+        <WaaromNu />
+        <WatWeBouwen />
+        <WaaromWij />
+        <EntryPoints />
+        <Diensten />
+        <WatHetOplevert />
+        <WieRunt t={t} />
+        <Serieus t={t} />
+        <Tijdlijn />
+        <Klanten t={t} />
+        <OpenEnAsk t={t} />
+      </main>
+      <Footer />
+
+      <TweaksPanel>
+        <TweakSection label="Team — sectie 8" />
+        <TweakRadio label="Variant" value={t.teamVariant}
+          options={[{label:'A · bevestigd', value:'A'}, {label:'B · in opbouw', value:'B'}]}
+          onChange={(v) => setTweak('teamVariant', v)} />
+        <TweakSection label="Kernzinnen herschrijven" />
+        <TweakText label="Zin voor klanten (sectie 11)" value={t.clientQuote} multiline
+          onChange={(v) => setTweak('clientQuote', v)} />
+        <TweakText label="Slotzin 'serieus' (sectie 9)" value={t.seriousKicker} multiline
+          onChange={(v) => setTweak('seriousKicker', v)} />
+        <TweakText label="Kop van de ask (sectie 12)" value={t.askHeadline}
+          onChange={(v) => setTweak('askHeadline', v)} />
+      </TweaksPanel>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+<script type="text/babel">
+// Auto-print once React has rendered and fonts are ready.
+(function () {
+  function go() {
+    var fonts = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    fonts.then(function () {
+      setTimeout(function () { window.print(); }, 700);
+    });
+  }
+  if (document.readyState === 'complete') { go(); }
+  else { window.addEventListener('load', go); }
+})();
+</script>
+
+<!-- direct-edit style overrides land here -->
+<style id="__om-edit-overrides"></style>
+</body>
+</html>

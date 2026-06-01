@@ -1,0 +1,316 @@
+/* ============================================================
+   HERD — Colors & Type
+   Core CSS variables and semantic styles for the HERD brand.
+   Import this file at the top of any HERD artifact.
+   ============================================================ */
+
+/* ------------------- Web fonts ------------------------------ */
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Brand colors ---------- */
+  /* Primary: HERD Coral — warm, confident, used for CTAs, key accents, large type */
+  --herd-coral:        #F06B52;
+  --herd-coral-700:    #D9553D; /* pressed / hover-darker */
+  --herd-coral-300:    #F79583; /* soft accent */
+  --herd-coral-100:    #FBDBD2; /* tint background */
+  --herd-coral-50:     #FDEDE7; /* very soft tint */
+
+  /* Primary dark: HERD Navy — anchor / body / headings on light */
+  --herd-navy:         #16192D;
+  --herd-navy-800:     #1F2340;
+  --herd-navy-600:     #3A3F5E;
+  --herd-navy-400:     #6B7192;
+  --herd-navy-200:     #C2C5D3;
+
+  /* Neutrals */
+  --herd-bone:         #F5F1EC; /* warm off-white / cream background */
+  --herd-bone-alt:     #EFE9E1; /* slightly deeper cream for panels */
+  --herd-white:        #FFFFFF;
+  --herd-black:        #0A0B14;
+
+  --herd-ink-1:        #16192D; /* primary text on light */
+  --herd-ink-2:        #3A3F5E; /* secondary text */
+  --herd-ink-3:        #6B7192; /* tertiary / caption */
+  --herd-ink-4:        #9AA0B8; /* disabled / placeholder */
+
+  --herd-line:         rgba(22, 25, 45, 0.10);
+  --herd-line-strong:  rgba(22, 25, 45, 0.22);
+
+  /* Label / sub-brand accent colors (used sparingly, only where naming a label) */
+  --herd-mosquito:     #F06B52; /* MOSQUITO inherits coral */
+  --herd-raft:         #16192D; /* RAFT uses navy */
+  --herd-elephant:     #3A3F5E; /* ELEPHANT uses deeper navy */
+  --herd-verkenners:   #F79583; /* Verkenners soft coral */
+
+  /* Semantic / UI */
+  --herd-success:      #4F9E7F;
+  --herd-warning:      #E8B341;
+  --herd-danger:       #D9553D;
+  --herd-info:         #6B7192;
+
+  /* ---------- Surfaces (semantic) ---------- */
+  --bg:                var(--herd-bone);
+  --bg-alt:            var(--herd-bone-alt);
+  --bg-inverse:        var(--herd-navy);
+  --surface:           var(--herd-white);
+  --surface-accent:    var(--herd-coral);
+
+  --fg1:               var(--herd-ink-1);  /* primary text */
+  --fg2:               var(--herd-ink-2);  /* secondary text */
+  --fg3:               var(--herd-ink-3);  /* tertiary / meta */
+  --fg4:               var(--herd-ink-4);  /* disabled */
+  --fg-inverse:        var(--herd-white);
+  --fg-accent:         var(--herd-coral);
+
+  --border:            var(--herd-line);
+  --border-strong:     var(--herd-line-strong);
+
+  /* ---------- Type ---------- */
+  --font-sans:         'Rubik', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-display:      'Rubik', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:         ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* Rubik works across the whole stack; weights used intentionally */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-bold:     700;
+  --fw-black:    900;
+
+  /* Type scale — tight, modernist, not too showy */
+  --fs-display:  clamp(56px, 7.5vw, 128px);
+  --fs-h1:       clamp(40px, 4.5vw, 72px);
+  --fs-h2:       clamp(30px, 3.2vw, 48px);
+  --fs-h3:       clamp(22px, 2vw, 30px);
+  --fs-h4:       clamp(18px, 1.4vw, 22px);
+  --fs-body-lg:  18px;
+  --fs-body:     16px;
+  --fs-small:    14px;
+  --fs-caption:  12px;
+  --fs-eyebrow:  12px;
+
+  --lh-display:  0.92;
+  --lh-heading:  1.05;
+  --lh-body:     1.55;
+  --lh-tight:    1.2;
+
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.015em;
+  --tracking-body:     0;
+  --tracking-eyebrow:  0.14em;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ---------- Radii ---------- */
+  --radius-xs:  4px;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+  --radius-pill: 9999px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-xs: 0 1px 2px rgba(22, 25, 45, 0.06);
+  --shadow-sm: 0 2px 6px rgba(22, 25, 45, 0.08);
+  --shadow-md: 0 8px 24px rgba(22, 25, 45, 0.10);
+  --shadow-lg: 0 16px 40px rgba(22, 25, 45, 0.14);
+  --shadow-coral: 0 10px 28px rgba(240, 107, 82, 0.35);
+
+  /* ---------- Motion ---------- */
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-herd:     cubic-bezier(0.2, 0.8, 0.2, 1); /* signature: confident, no bounce */
+  --dur-fast:   120ms;
+  --dur-base:   220ms;
+  --dur-slow:   420ms;
+}
+
+/* =================== Base semantic styles =================== */
+html { color-scheme: light; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg1);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display — used on hero/cover slides. Always black weight, tight leading. */
+.herd-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-black);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg1);
+}
+
+h1, .herd-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg1);
+  margin: 0 0 var(--space-6);
+  text-wrap: balance;
+}
+
+h2, .herd-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg1);
+  margin: 0 0 var(--space-5);
+  text-wrap: balance;
+}
+
+h3, .herd-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg1);
+  margin: 0 0 var(--space-4);
+}
+
+h4, .herd-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-tight);
+  color: var(--fg1);
+  margin: 0 0 var(--space-3);
+}
+
+p, .herd-p {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg2);
+  margin: 0 0 var(--space-4);
+  text-wrap: pretty;
+}
+
+.herd-lead {
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-light);
+  line-height: 1.5;
+  color: var(--fg2);
+}
+
+.herd-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+.herd-caption {
+  font-size: var(--fs-caption);
+  color: var(--fg3);
+}
+
+a, .herd-link {
+  color: var(--fg1);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--herd-coral);
+  transition: color var(--dur-base) var(--ease-herd),
+              text-decoration-color var(--dur-base) var(--ease-herd);
+}
+a:hover, .herd-link:hover {
+  color: var(--herd-coral);
+  text-decoration-color: var(--herd-coral);
+}
+
+code, kbd, samp, pre, .herd-mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-alt);
+  padding: 0.12em 0.36em;
+  border-radius: var(--radius-xs);
+  color: var(--fg1);
+}
+
+/* Dark-section utility — flip foregrounds for navy hero panels */
+.on-dark {
+  color: var(--fg-inverse);
+}
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4,
+.on-dark p, .on-dark .herd-lead { color: var(--fg-inverse); }
+.on-dark .herd-eyebrow { color: var(--herd-coral-300); }
+.on-dark a { color: var(--herd-coral-300); text-decoration-color: var(--herd-coral); }
+
+/* Selection */
+::selection {
+  background: var(--herd-coral);
+  color: var(--herd-white);
+}
