@@ -85,15 +85,24 @@ function Opener({ t }) {
         <div className="hero__tldr reveal" data-d="3">
           <div className="tldr-card">
             <div className="tldr-card__k">Wat het is</div>
-            <div className="tldr-card__v">Een AI-label dat diensten ontwikkelt en beheert voor onze klanten.</div>
+            <div className="tldr-card__v">
+              Een volwaardige AI agency dat onze klanten helpt in AI adoptie, kennis en implementatie.
+              We bouwen oplossingen, we trainen teams, we zorgen dat AI ook echt gebruikt wordt.
+            </div>
           </div>
           <div className="tldr-card">
             <div className="tldr-card__k">Wat het niet is</div>
-            <div className="tldr-card__v">Geen vervanger van je werk. Geen experiment. Geen losse club.</div>
+            <div className="tldr-card__v">
+              Geen project of initiatief dat we tijdelijk opzetten. Dit gaat ook niet jouw werk vervangen of alleen maar inspelen op efficiëntie.
+              MBH is een eigen label met volwaardige zetel en ambities.
+            </div>
           </div>
           <div className="tldr-card">
             <div className="tldr-card__k">Wat we van jou vragen</div>
-            <div className="tldr-card__v">Signaleer als een klant met AI worstelt. Meer niet. Wij pakken het op.</div>
+            <div className="tldr-card__v">
+              Wees nieuwsgierig. AI zal een basis vormen in alle vakgebieden, dus ook in die van jou.
+              Machine, be Human is er ook om jou hierin te faciliteren — met kennis, tools en begeleiding.
+            </div>
           </div>
         </div>
       </div>
