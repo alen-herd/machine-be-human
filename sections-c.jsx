@@ -103,7 +103,7 @@ function WieRunt() {
         <div className="team-grid">
           {[lead, ...team].map(p => <Person key={p.slotId} {...p} featured={p === lead} />)}
         </div>
-        <p className="team-foot reveal">Foto&rsquo;s zijn placeholders — definitieve portretten volgen.</p>
+        <p className="team-foot reveal">Dit team bouwt MBH op. Hybride, van verschillende labels, maar volledig committed.</p>
       </div>
     </section>
   );

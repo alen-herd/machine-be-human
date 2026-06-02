@@ -64,11 +64,8 @@ function Opener({ t }) {
         </div>
 
         <h1 className="hero__display reveal is-in" data-d="1">
-          <span className="ln">AI doet wat mensen doen.</span>
-          <span className="ln muted">Mensen doen wat AI moet doen.</span>
-          <span className="ln" style={{ marginTop: '0.18em' }}>
-            Dat moet <span className="hero__strike">andersom</span>.
-          </span>
+          <span className="ln">Machine, be Human</span>
+          <span className="ln muted">lancering 18 juni</span>
         </h1>
 
         <div className="hero__sub reveal" data-d="2">
@@ -111,48 +108,49 @@ function Opener({ t }) {
 
 /* ============================== 2 — WAAROM NU ============================== */
 function WaaromNu() {
+  const benefits = [
+    {
+      col: 'Voor het team',
+      items: [
+        ['Jetpacks voor jezelf', 'AI-tools voor je eigen werk — vóór klanten. Niet abstract, onderdeel van het launch-plan.'],
+        ['Je werk wordt makkelijker', 'Repetitief werk eruit. Meer tijd voor het werk dat er echt toe doet.'],
+        ['AI-geletterdheid', 'Kennismomenten, toegang tot tools en trainingsbudget — zodat je vertrouwd raakt met wat steeds meer de basis wordt.'],
+      ]
+    },
+    {
+      col: 'Voor klanten & groep',
+      items: [
+        ['Sterkere klantrelaties', 'Kom je op een nieuw, relevant onderwerp aan tafel — ook bij klanten die je al kent.'],
+        ['Groep versterkt positie', 'Klanten krijgen één plek voor AI. We staan sterker in de markt.'],
+        ['Omzet zonder AI-expert te zijn', 'Niemand hoeft AI-specialist te worden. MBH ontwikkelt; jij signaleert.'],
+      ]
+    }
+  ];
   return (
     <section className="section" id="waarom" data-screen-label="02 Waarom nu">
       <div className="shell">
         <div className="reveal">
           <div className="eyebrow"><span className="eyebrow__num">02</span><span className="eyebrow__bar"></span>Waarom dit, waarom nu</div>
-          <h2 className="sec-title">Twee redenen. Eén naar binnen, één naar buiten.</h2>
+          <h2 className="sec-title">Dit is wat het oplevert.</h2>
           <p className="sec-lead">
-            Dit komt niet uit de lucht vallen. Er zijn twee heel concrete dingen die we beter willen doen —
-            en MBH is hoe we dat aanpakken.
+            MBH versnelt de groep en jou persoonlijk. Dit zijn de concrete voordelen — voor jou, en voor de bureaus.
           </p>
         </div>
 
-        <div className="duo">
-          <article className="duo-card reveal" data-d="1">
-            <span className="duo-card__tag">Naar binnen</span>
-            <h3>We werken langs elkaar heen met AI.</h3>
-            <div className="prose">
-              <p>
-                Op dit moment is iedereen binnen de groep op zijn eigen manier met AI bezig. Mensen experimenteren,
-                leren, bouwen iets — vaak los van elkaar. We zijn onvoldoende op de hoogte van wat er bij collega's en
-                andere labels speelt.
-              </p>
-              <p>
-                Dat moet anders. Door AI in één label te centraliseren <strong>versnellen we elkaar</strong>, in plaats
-                van langs elkaar heen te werken.
-              </p>
+        <div className="benefits-grid">
+          {benefits.map((b, i) => (
+            <div key={i} className="benefits-col reveal" data-d={i + 1}>
+              <h3 className="benefits-col__head">{b.col}</h3>
+              <ul className="benefits-list">
+                {b.items.map(([title, desc], j) => (
+                  <li key={j}>
+                    <b>{title}</b>
+                    <span>{desc}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </article>
-
-          <article className="duo-card reveal" data-d="2">
-            <span className="duo-card__tag">Naar buiten</span>
-            <h3>Het brengt ons anders aan tafel. En vaker.</h3>
-            <div className="prose">
-              <p>
-                Klanten die met AI worstelen krijgen één plek waar ze terechtkunnen. De relatie wordt sterker — ook met
-                klanten die al van Elephant, Mosquito of Raft afnemen.
-              </p>
-              <p>
-                Dat versterkt de groep als geheel. En daarmee ook <strong>het werk van alle labels</strong>.
-              </p>
-            </div>
-          </article>
+          ))}
         </div>
       </div>
     </section>

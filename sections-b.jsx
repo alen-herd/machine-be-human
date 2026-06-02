@@ -3,40 +3,88 @@
    4 Waarom wij (positionering) · 5 Entry points · 6 Marktbehoeften + diensten · 7 Wat het oplevert
    ============================================================ */
 
-/* ============================== 4 — WAAROM WIJ (HUMAN POSITIONERING) ============================== */
-function WaaromWij() {
-  const cards = [
-    {
-      icon: <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" />,
-      title: 'Onderdeel van de groep',
-      body: 'Geen eendagsvlieg. MBH staat op het fundament van Mosquito, Elephant, Raft en de Verkenners — met een eigen entiteit, eigen budget en eigen MD, maar nooit alleen.'
-    },
-    {
-      icon: <path d="M12 2a5 5 0 015 5c0 2-1 3-2 4s-1 2-1 3H10c0-1 0-2-1-3s-2-2-2-4a5 5 0 015-5zM9 21h6M10 18h4" />,
-      title: 'Mensgericht, niet tool-gericht',
-      body: 'We beginnen bij de mens en het werk, niet bij de tool. AI is het middel; meer menselijk contact en betere beslissingen zijn het doel.'
-    },
-    {
-      icon: <path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3" />,
-      title: 'Adoptie, niet alleen implementatie',
-      body: 'De meeste AI-trajecten stranden ná de oplevering. Wij blijven: met beleid, begeleiding en workshops zorgen we dat het ook echt gebruikt wordt.'
-    },
+/* ============================== 4 — ONZE POSITIE (MATRIX) ============================== */
+function PositieMatrix() {
+  const competitors = [
+    { name: 'MBH', x: 72, y: 72, color: 'coral', size: 'large' },
+    { name: 'Accenture / McKinsey', x: 75, y: 20, color: 'text-3', size: 'small' },
+    { name: 'Quickwin tools (ChatGPT plugins)', x: 25, y: 15, color: 'text-3', size: 'small' },
+    { name: 'Regional agencies (traditioneel)', x: 20, y: 65, color: 'text-3', size: 'small' },
   ];
+
   return (
-    <section className="section section--panel" id="positie" data-screen-label="04 Waarom wij">
+    <section className="section section--panel" id="positie" data-screen-label="04 Onze positie">
       <div className="shell">
         <div className="reveal">
           <div className="eyebrow"><span className="eyebrow__num">04</span><span className="eyebrow__bar"></span>Onze positie</div>
-          <h2 className="sec-title">Niet de zoveelste AI-tool. Een <em>mensgerichte</em> partner.</h2>
+          <h2 className="sec-title">Waar we staan. Waarom we anders zijn.</h2>
           <p className="sec-lead">
-            De markt staat vol met tools en quick wins. Wat ons onderscheidt is hoe we erin staan — verankerd in de
-            groep, gericht op mensen, en betrokken tot het echt werkt.
+            De markt vol aanbieders — van techgericht tot regionaal. MBH positioneert zich als mensgerichte, internationale partner.
           </p>
         </div>
-        <div className="who-grid">
-          {cards.map((c, i) => (
-            <article key={i} className="who-card reveal" data-d={i + 1}>
-              <div className="who-card__icon">
+
+        <div className="matrix-container reveal" data-d="1">
+          <svg className="matrix-chart" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            {/* Grid lines */}
+            <line x1="50" y1="5" x2="50" y2="95" stroke="var(--mbh-hair)" strokeWidth="0.5" />
+            <line x1="5" y1="50" x2="95" y2="50" stroke="var(--mbh-hair)" strokeWidth="0.5" />
+
+            {/* Axis labels */}
+            <text x="95" y="48" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="end">Mensgericht</text>
+            <text x="10" y="48" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="start">Techniek-gericht</text>
+            <text x="52" y="8" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="start">Internationaal</text>
+            <text x="52" y="97" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="start">Regionaal</text>
+
+            {/* Competitors */}
+            {competitors.map((comp, i) => {
+              const radius = comp.size === 'large' ? 4 : 2.2;
+              const fillColor = comp.color === 'coral' ? 'var(--mbh-coral)' : 'var(--mbh-text-3)';
+              return (
+                <g key={i}>
+                  <circle cx={comp.x} cy={comp.y} r={radius} fill={fillColor} opacity={comp.color === 'coral' ? 1 : 0.4} />
+                  {comp.color === 'coral' && (
+                    <text x={comp.x} y={comp.y + 8} fontSize="2.8" fill="var(--mbh-coral)" fontWeight="bold" textAnchor="middle">
+                      {comp.name}
+                    </text>
+                  )}
+                </g>
+              );
+            })}
+          </svg>
+
+          {/* Legend / Explanation */}
+          <div className="matrix-legend">
+            <div className="matrix-legend__item reveal" data-d="1">
+              <span className="matrix-legend__dot" style={{ background: 'var(--mbh-coral)' }}></span>
+              <div>
+                <strong>MBH</strong>
+                <p>Mensgericht + Internationaal = sterke partner voor groepsklanten</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Positioning pillars below matrix */}
+        <div className="positioning-cards reveal" data-d="2">
+          {[
+            {
+              icon: <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" />,
+              title: 'Onderdeel van de groep',
+              body: 'Geen eendagsvlieg. MBH staat op het fundament van Mosquito, Elephant, Raft en de Verkenners — met eigen entiteit, budget en MD.'
+            },
+            {
+              icon: <path d="M12 2a5 5 0 015 5c0 2-1 3-2 4s-1 2-1 3H10c0-1 0-2-1-3s-2-2-2-4a5 5 0 015-5zM9 21h6M10 18h4" />,
+              title: 'Mensgericht, niet tool-gericht',
+              body: 'We beginnen bij de mens en het werk, niet bij de tool. AI is het middel; menselijk contact is het doel.'
+            },
+            {
+              icon: <path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3" />,
+              title: 'Adoptie, niet alleen implementatie',
+              body: 'De meeste AI-trajecten stranden ná oplevering. Wij blijven: met beleid, begeleiding en workshops.'
+            },
+          ].map((c, i) => (
+            <article key={i} className="pos-card reveal" data-d={i + 1}>
+              <div className="pos-card__icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{c.icon}</svg>
               </div>
               <h4>{c.title}</h4>
@@ -49,47 +97,87 @@ function WaaromWij() {
   );
 }
 
-/* ============================== 5 — ENTRY POINTS ============================== */
-function EntryPoints() {
-  const labels = [
-    { name: 'Mosquito', line: 'Verhaal en identiteit in het AI-tijdperk.' },
-    { name: 'Elephant', line: 'AI-implementatie en werkprocessen.' },
-    { name: 'Raft', line: 'AI, data en marketing.' },
-    { name: 'Verkenners', line: 'Trendwatching, events en nieuwe kansen.' },
+/* ============================== 5 — HOE HET WERKT (FLOW + FAQ) ============================== */
+function HoeHetWerkt() {
+  const [openQ, setOpenQ] = React.useState(null);
+  const faqs = [
+    {
+      q: 'Gaat mijn klant nu naar MBH in plaats van naar ons?',
+      a: 'Nee. De klant blijft bij jouw bureau. MBH is de specialist die jij inzet — net als je any other expert. Jij behoudt de relatie, jij voert uit, jij factuurt.'
+    },
+    {
+      q: 'Waarom zou mijn bureau hiermee willen werken?',
+      a: 'Omdat je sterker aan tafel zit, omdat je omzet genereert zonder zelf AI-expert te moeten zijn, en omdat het werk beter wordt. MBH haalt repetitief werk eraf, jij concentreert je op strategie en relatie.'
+    },
+    {
+      q: 'Hoe verdient MBH geld als het allemaal via bureaus gaat?',
+      a: 'MBH werft ook zelf. Bureaus zijn sterke entry points, maar niet de enige weg. MBH bouwt een eigen positionering, content en outreach — klanten kunnen rechtstreeks binnenkomen.'
+    },
   ];
+
   return (
-    <section className="section" id="entry" data-screen-label="05 Entry points">
+    <section className="section" id="entry" data-screen-label="05 Hoe het werkt">
       <div className="shell">
         <div className="reveal">
-          <div className="eyebrow"><span className="eyebrow__num">05</span><span className="eyebrow__bar"></span>Hoe klanten binnenkomen</div>
-          <h2 className="sec-title">Vier bureaus als entry point. En onze eigen new business.</h2>
+          <div className="eyebrow"><span className="eyebrow__num">05</span><span className="eyebrow__bar"></span>Hoe het werkt</div>
+          <h2 className="sec-title">Bureau + MBH. Dit is de samenwerking.</h2>
           <p className="sec-lead">
-            De bureaus zijn sterke entry points — daar bestaan de klantrelaties en komen AI-gesprekken op natuurlijke
-            momenten aan tafel. Maar ze zijn níet de enige weg naar binnen. <strong>MBH werft ook zelf.</strong>
+            De bureaus signaleren klanten met AI-vragen. MBH mee-onderzoekt en bouwt. Bureau voert uit en behoudt relatie. Simpel.
           </p>
         </div>
 
-        <div className="ep-grid">
-          {labels.map((l) => (
-            <article key={l.name} className="ep-card reveal">
-              <span className="ep-card__via">Entry point</span>
-              <div className="ep-card__name">{l.name}</div>
-              <p className="ep-card__line">{l.line}</p>
-            </article>
+        {/* Flow diagram */}
+        <div className="flow-diagram reveal" data-d="1">
+          <div className="flow-step">
+            <div className="flow-step__icon">1</div>
+            <div className="flow-step__body">
+              <h4>Bureau signaleert</h4>
+              <p>Je klant vraagt naar AI of worstelt ermee. Jij signaleert — dat is alles.</p>
+            </div>
+          </div>
+
+          <div className="flow-arrow" aria-hidden="true">→</div>
+
+          <div className="flow-step">
+            <div className="flow-step__icon">2</div>
+            <div className="flow-step__body">
+              <h4>MBH onderzoekt & bouwt</h4>
+              <p>MBH doet discovery, adviseert, implementeert. Bureau ziet voortgang.</p>
+            </div>
+          </div>
+
+          <div className="flow-arrow" aria-hidden="true">→</div>
+
+          <div className="flow-step">
+            <div className="flow-step__icon">3</div>
+            <div className="flow-step__body">
+              <h4>Bureau voert uit</h4>
+              <p>Bureau integreert MBH's oplossing, behoudt klantrelatie, beheert voortaan.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="entry-faq reveal" data-d="2">
+          <h3 className="entry-faq__head">Veel gestelde vragen</h3>
+          {faqs.map((item, i) => (
+            <div key={i} className={`entry-faq__item ${openQ === i ? 'is-open' : ''}`}>
+              <button
+                className="entry-faq__q"
+                onClick={() => setOpenQ(openQ === i ? null : i)}
+                aria-expanded={openQ === i}
+              >
+                {item.q}
+                <span className="entry-faq__icon" aria-hidden="true">+</span>
+              </button>
+              {openQ === i && (
+                <div className="entry-faq__a">
+                  <p>{item.a}</p>
+                </div>
+              )}
+            </div>
           ))}
         </div>
-
-        <article className="ep-new reveal" data-d="1">
-          <div className="ep-new__head">
-            <span className="ep-new__tag">Eigen kanaal</span>
-            <h3>New business — MBH werft zelf</h3>
-          </div>
-          <p>
-            MBH bouwt een eigen positionering, eigen content, eigen events en eigen outreach. Klanten kunnen dus ook
-            rechtstreeks bij MBH binnenkomen, los van een lopende relatie bij een van de bureaus. De bureaus versnellen,
-            maar bepalen niet de bovengrens.
-          </p>
-        </article>
       </div>
     </section>
   );
@@ -271,4 +359,4 @@ function WatHetOplevert() {
   );
 }
 
-Object.assign(window, { WaaromWij, EntryPoints, Diensten, WatHetOplevert });
+Object.assign(window, { PositieMatrix, HoeHetWerkt, Diensten, WatHetOplevert });
