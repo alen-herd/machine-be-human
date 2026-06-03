@@ -673,8 +673,8 @@ h1,h2,h3,h4,h5,h6,p,li{ color:var(--mbh-text); }
 
 .tab-content__left h3{ font-size:clamp(28px, 3vw, 38px); font-weight:var(--fw-bold); color:var(--mbh-text);
   margin:0 0 24px; line-height:1.2; }
-.tab-content__intro{ font-size:clamp(17px, 1.8vw, 20px); font-weight:var(--fw-light); color:var(--mbh-coral); line-height:1.65;
-  margin:0 0 28px; padding-bottom:20px; border-bottom:1px solid var(--mbh-hair); text-wrap:pretty; }
+.tab-content__intro{ font-size:clamp(18px, 2vw, 22px); font-weight:var(--fw-light); color:var(--mbh-coral); line-height:1.7;
+  margin:0 0 32px; padding-bottom:28px; border-bottom:1px solid var(--mbh-hair); text-wrap:pretty; }
 .tab-content__left p{ font-size:16px; line-height:1.65; color:var(--mbh-text-2); margin:0; text-wrap:pretty; }
 
 .feature-list{ display:flex; flex-direction:column; gap:20px; }

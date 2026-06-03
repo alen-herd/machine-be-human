@@ -3,100 +3,6 @@
    4 Waarom wij (positionering) · 5 Entry points · 6 Marktbehoeften + diensten · 7 Wat het oplevert
    ============================================================ */
 
-/* ============================== 4 — ONZE POSITIE (MATRIX) ============================== */
-function PositieMatrix() {
-  const competitors = [
-    { name: 'MBH', x: 72, y: 72, color: 'coral', size: 'large' },
-    { name: 'Accenture / McKinsey', x: 75, y: 20, color: 'text-3', size: 'small' },
-    { name: 'Quickwin tools (ChatGPT plugins)', x: 25, y: 15, color: 'text-3', size: 'small' },
-    { name: 'Regional agencies (traditioneel)', x: 20, y: 65, color: 'text-3', size: 'small' },
-  ];
-
-  return (
-    <section className="section section--panel" id="positie" data-screen-label="04 Onze positie">
-      <div className="shell">
-        <div className="reveal">
-          <div className="eyebrow"><span className="eyebrow__num">04</span><span className="eyebrow__bar"></span>Onze positie</div>
-          <h2 className="sec-title">Waar we staan. Waarom we anders zijn.</h2>
-          <p className="sec-lead">
-            De markt vol aanbieders — van techgericht tot regionaal. MBH positioneert zich als mensgerichte, internationale partner.
-          </p>
-        </div>
-
-        <div className="matrix-container reveal" data-d="1">
-          <svg className="matrix-chart" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-            {/* Grid lines */}
-            <line x1="50" y1="5" x2="50" y2="95" stroke="var(--mbh-hair)" strokeWidth="0.5" />
-            <line x1="5" y1="50" x2="95" y2="50" stroke="var(--mbh-hair)" strokeWidth="0.5" />
-
-            {/* Axis labels */}
-            <text x="95" y="48" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="end">Mensgericht</text>
-            <text x="10" y="48" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="start">Techniek-gericht</text>
-            <text x="52" y="8" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="start">Internationaal</text>
-            <text x="52" y="97" fontSize="3.5" fill="var(--mbh-text-3)" textAnchor="start">Regionaal</text>
-
-            {/* Competitors */}
-            {competitors.map((comp, i) => {
-              const radius = comp.size === 'large' ? 4 : 2.2;
-              const fillColor = comp.color === 'coral' ? 'var(--mbh-coral)' : 'var(--mbh-text-3)';
-              return (
-                <g key={i}>
-                  <circle cx={comp.x} cy={comp.y} r={radius} fill={fillColor} opacity={comp.color === 'coral' ? 1 : 0.4} />
-                  {comp.color === 'coral' && (
-                    <text x={comp.x} y={comp.y + 8} fontSize="2.8" fill="var(--mbh-coral)" fontWeight="bold" textAnchor="middle">
-                      {comp.name}
-                    </text>
-                  )}
-                </g>
-              );
-            })}
-          </svg>
-
-          {/* Legend / Explanation */}
-          <div className="matrix-legend">
-            <div className="matrix-legend__item reveal" data-d="1">
-              <span className="matrix-legend__dot" style={{ background: 'var(--mbh-coral)' }}></span>
-              <div>
-                <strong>MBH</strong>
-                <p>Mensgericht + Internationaal = sterke partner voor groepsklanten</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Positioning pillars below matrix */}
-        <div className="positioning-cards reveal" data-d="2">
-          {[
-            {
-              icon: <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" />,
-              title: 'Onderdeel van de groep',
-              body: 'Geen eendagsvlieg. MBH staat op het fundament van Mosquito, Elephant, Raft en de Verkenners — met eigen entiteit, budget en MD.'
-            },
-            {
-              icon: <path d="M12 2a5 5 0 015 5c0 2-1 3-2 4s-1 2-1 3H10c0-1 0-2-1-3s-2-2-2-4a5 5 0 015-5zM9 21h6M10 18h4" />,
-              title: 'Mensgericht, niet tool-gericht',
-              body: 'We beginnen bij de mens en het werk, niet bij de tool. AI is het middel; menselijk contact is het doel.'
-            },
-            {
-              icon: <path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3" />,
-              title: 'Adoptie, niet alleen implementatie',
-              body: 'De meeste AI-trajecten stranden ná oplevering. Wij blijven: met beleid, begeleiding en workshops.'
-            },
-          ].map((c, i) => (
-            <article key={i} className="pos-card reveal" data-d={i + 1}>
-              <div className="pos-card__icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{c.icon}</svg>
-              </div>
-              <h4>{c.title}</h4>
-              <p>{c.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ============================== 5 — HOE HET WERKT (FLOW + FAQ) ============================== */
 function HoeHetWerkt() {
   const [openQ, setOpenQ] = React.useState(null);
@@ -207,24 +113,29 @@ function Diensten() {
   ];
   const services = [
     {
-      num: '01', title: 'AI Consultancy & Discovery',
-      body: 'Het startpunt voor vrijwel elke klant: in kaart brengen waar de organisatie staat en waar AI echt waarde toevoegt.',
-      items: ['Discovery — scan van de organisatie', 'AI Maturity Scan', 'AI Act Scan', 'AI-beleid & guidelines']
+      num: '01', title: 'Strategie',
+      body: 'Wat moet de mens blijven doen? En wat besteed je uit aan AI? Dat begint niet bij implementeren van agents, maar bij een scherpe discovery. We brengen in kaart wat jouw organisatie doet, hoe AI daar nu in werkt en waar het vooral aan kan bijdragen. Van beleid, tot aan implementatie. Dit is het plan.',
+      items: ['Discovery van AI-mogelijkheden', 'In kaart brengen huidige situatie', 'Beleid & implementatieplan']
     },
     {
-      num: '02', title: 'AI Agents — “Jetpacks”',
-      body: 'Geconfigureerde AI-agents per afdeling of functie. Klaar voor gebruik, afgestemd op de rol — geconfigureerd en onderhouden door MBH.',
-      items: ['Per afdeling of functie', 'Configuratie en onderhoud door MBH', 'Bijv. copy, performance, development, strategie']
+      num: '02', title: 'Visie & beleid',
+      body: 'Hoe wordt de data door AI verwerkt? Welke LLM gebruiken medewerkers? Hoe faciliteert jouw bedrijf dit gebruik? Voldoen we aan wetgeving (AI Act) en hebben we richtlijnen rondom AI gebruik in onze processen? Machine, be Human helpt het leiderschap dit scherp te stellen en uit te rollen in de organisatie.',
+      items: ['Data governance & LLM selectie', 'AI Act compliance', 'Richtlijnen voor AI gebruik']
     },
     {
-      num: '03', title: 'Custom Implementaties',
-      body: 'Maatwerk voor wat niet uit de plank komt: LLM-inrichting, customization en koppelingen die wél op de organisatie passen.',
-      items: ['LLM-inrichting & customization', 'Integraties op maat', 'Gebouwd bovenop de discovery']
+      num: '03', title: 'Implementatie',
+      body: 'Welke tool-stack kies je als organisatie en hoe richt je dit in? Machine, be Human helpt je de juiste tools en processen op te zetten zodat je team direct kan starten.',
+      items: ['Tool-stack selectie', 'Inrichting & configuratie', 'Technische integratie']
     },
     {
-      num: '04', title: 'AI Workshops & Trainingen',
-      body: 'Kennis overdragen en drempels verlagen — onmisbaar om sceptici te overtuigen en adoptie op gang te brengen.',
-      items: ['Incompany', 'Open inschrijving', 'Verdiepingssessies']
+      num: '04', title: 'Jetpacks',
+      body: 'Wij zien een jetpack als een versneller voor jouw werk. Denk aan een web-copywriter, een lead qualifier, een offerte-builder. Een jetpack verricht een specifieke taak volgens de richtlijnen van de klant. Iets wat mensen in staat stelt sneller te werken terwijl de kwaliteit hoog blijft.',
+      items: ['Task-specifieke AI-agents', 'Per rol of functie', 'Klaar voor direct gebruik']
+    },
+    {
+      num: '05', title: 'Consultancy, support & training',
+      body: 'Steeds meer mensen in het bedrijf gebruiken nu AI. Waar lopen ze tegenaan? Wat werkt wel en niet goed? Welke medewerkers tonen weerstand of vinden het lastig? Machine, be Human blijft als partner ondersteuning bieden om de AI adoptie te borgen.',
+      items: ['Workshops & trainingen', 'Helpdesk & support', 'Change management']
     },
   ];
   return (
@@ -281,7 +192,7 @@ function Diensten() {
 
         <div className="dashboard-note reveal">
           <span className="dashboard-note__k">AI Dashboard · Fase 2</span>
-          <p>Een omgeving waarin de klant kan zien hoe hun AI-adoptie en -gebruik eruitzien — inzicht in wat AI de organisatie oplevert.</p>
+          <p>Een omgeving waarin de klant kan zien hoe hun AI-adoptie en -gebruik eruitzien. Inzicht in wat AI de organisatie oplevert, waar medewerkers tegenaan lopen, en waar ondersteuning nodig is. Het dashboard helpt het leiderschap te begrijpen waar trainingen, consultancy en support het meest impact hebben.</p>
         </div>
         <p className="retainer-note reveal">
           Veel klanten nemen meerdere diensten doorlopend af — bijvoorbeeld een Discovery + vier Agents + het Dashboard +
@@ -359,4 +270,4 @@ function WatHetOplevert() {
   );
 }
 
-Object.assign(window, { PositieMatrix, HoeHetWerkt, Diensten, WatHetOplevert });
+Object.assign(window, { HoeHetWerkt, Diensten, WatHetOplevert });
