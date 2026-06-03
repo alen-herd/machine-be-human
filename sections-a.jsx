@@ -117,49 +117,94 @@ function Opener({ t }) {
 
 /* ============================== 2 — WAAROM NU ============================== */
 function WaaromNu() {
-  const benefits = [
-    {
-      col: 'Voor het team',
-      items: [
-        ['Jetpacks voor jezelf', 'AI-tools voor je eigen werk — vóór klanten. Niet abstract, onderdeel van het launch-plan.'],
-        ['Je werk wordt makkelijker', 'Repetitief werk eruit. Meer tijd voor het werk dat er echt toe doet.'],
-        ['AI-geletterdheid', 'Kennismomenten, toegang tot tools en trainingsbudget — zodat je vertrouwd raakt met wat steeds meer de basis wordt.'],
+  const [activeTab, setActiveTab] = React.useState('jou');
+
+  const tabs = {
+    jou: {
+      label: 'Voor jou',
+      left: {
+        title: 'Wat moet dit jou kunnen bieden?',
+        intro: 'AI is een realiteit waar jij als specialist niet meer omheen kan. Machine, be Human gaat jou helpen om AI onderdeel te maken van jouw werk.',
+        paragraph: 'Je kunt meedoen in AI klantprojecten, workshops & trainingen volgen, of een specifiek vraagstuk vanuit je eigen bureau neerleggen bij Machine, be Human. Dit zal jouw ontwikkeling op AI ook in versnelling zetten.'
+      },
+      right: [
+        { title: 'AI Agents voor jouw vakgebied', desc: 'We ontwikkelen agents die jouw werk sneller, makkelijker en beter kunnen maken. Dit ontwikkelen we samen met jouw input.' },
+        { title: 'AI Helpdesk', desc: 'Welke tool moet je gebruiken? Op welke manier? Een klant die een kritische vraag stelt over AI? Machine, be Human is jouw vangnet om deze vragen op te vangen en je te ondersteunen.' },
+        { title: 'AI Geletterdheid', desc: 'Hoe werken LLM\'s? Wat is de AI Act? Hoe bouw ik een agent? Doordat we meer met AI bezig zijn, gaan we ook steeds betere antwoorden geven. Dit zorgt dat jouw AI geletterdheid groeit — essentieel voor je persoonlijke ontwikkeling.' }
       ]
     },
-    {
-      col: 'Voor klanten & groep',
-      items: [
-        ['Sterkere klantrelaties', 'Kom je op een nieuw, relevant onderwerp aan tafel — ook bij klanten die je al kent.'],
-        ['Groep versterkt positie', 'Klanten krijgen één plek voor AI. We staan sterker in de markt.'],
-        ['Omzet zonder AI-expert te zijn', 'Niemand hoeft AI-specialist te worden. MBH ontwikkelt; jij signaleert.'],
+    klant: {
+      label: 'Voor de klant',
+      left: {
+        title: 'Wat bieden wij jouw organisatie?',
+        intro: 'AI is inmiddels een kritische onderwerp voor bijna elke organisatie. Machine, be Human helpt jouw bedrijf AI verantwoord, effectief en mensgericht in te zetten.',
+        paragraph: 'Je kunt ons inzetten voor discovery & strategieontwikkeling, het bouwen van AI-oplossingen, of trainingen van je team. Met Machine, be Human krijg je een partner die AI werkelijk laat werken in je organisatie.'
+      },
+      right: [
+        { title: 'AI Strategy & Implementation', desc: 'Je krijgt partners die jouw organisatie helpen AI verantwoord in te zetten. Van discovery tot operationalisering.' },
+        { title: 'Custom AI Solutions', desc: 'Maatwerk AI-tools en -agents die passen bij jouw specifieke uitdagingen en processen. Gebouwd in samenwerking met jouw team.' },
+        { title: 'AI Adoption Support', desc: 'Implementatie is slechts het begin. We begeleiden je team in het daadwerkelijk gebruik van AI, met trainingen, ondersteuning en governance.' }
+      ]
+    },
+    groep: {
+      label: 'Voor The HERD',
+      left: {
+        title: 'Wat betekent dit voor onze groep?',
+        intro: 'Machine, be Human versterkt de gehele groep. Dit label maakt de groep toekomstbestendig, versterkt klantrelaties en positioneert de groep als innovatief.',
+        paragraph: 'Klanten kunnen nu volledig binnen de groep geholpen worden met hun AI-vragen. Elk label — Mosquito, Elephant, Raft, Verkenners — biedt méér waarde doordat Machine, be Human beschikbaar is. Dit maakt de groep sterker.'
+      },
+      right: [
+        { title: 'Versterkte Klantrelaties', desc: 'Klanten hebben één plek binnen de groep voor al hun AI-vragen. Dit maakt de relatie dieper en de penetratie hoger.' },
+        { title: 'Differentiatie in de Markt', desc: 'Terwijl anderen "AI-first" roepen, laten we zien dat we het écht kunnen. Dit onderscheidt ons van competitors.' },
+        { title: 'Groei & Toekomstbestendigheid', desc: 'Machine, be Human is een nieuw inkomstenkanaal en zorgt dat de groep relevant blijft — in de markt en voor haar mensen.' }
       ]
     }
-  ];
+  };
+
+  const current = tabs[activeTab];
+
   return (
     <section className="section" id="waarom" data-screen-label="02 Waarom nu">
       <div className="shell">
         <div className="reveal">
           <div className="eyebrow"><span className="eyebrow__num">02</span><span className="eyebrow__bar"></span>Waarom dit, waarom nu</div>
-          <h2 className="sec-title">Dit is wat het oplevert.</h2>
+          <h2 className="sec-title">Machine, be Human werkt voor drie doelgroepen.</h2>
           <p className="sec-lead">
-            MBH versnelt de groep en jou persoonlijk. Dit zijn de concrete voordelen — voor jou, en voor de bureaus.
+            Dit label biedt iets voor jou persoonlijk, voor onze klanten, en voor de groep als geheel.
           </p>
         </div>
 
-        <div className="benefits-grid">
-          {benefits.map((b, i) => (
-            <div key={i} className="benefits-col reveal" data-d={i + 1}>
-              <h3 className="benefits-col__head">{b.col}</h3>
-              <div className="feature-cards">
-                {b.items.map(([title, desc], j) => (
-                  <div key={j} className="feature-card">
-                    <h4>{title}</h4>
-                    <p>{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Tab buttons */}
+        <div className="tab-buttons reveal" data-d="1">
+          {Object.entries(tabs).map(([key, tab]) => (
+            <button
+              key={key}
+              className={`tab-btn ${activeTab === key ? 'is-active' : ''}`}
+              onClick={() => setActiveTab(key)}
+            >
+              {tab.label}
+            </button>
           ))}
+        </div>
+
+        {/* Tab content */}
+        <div className="tab-content reveal" data-d="2">
+          <div className="tab-content__left">
+            <h3>{current.left.title}</h3>
+            <p className="tab-content__intro">{current.left.intro}</p>
+            <p>{current.left.paragraph}</p>
+          </div>
+
+          <div className="tab-content__right">
+            <div className="feature-list">
+              {current.right.map((feature, i) => (
+                <div key={i} className="feature-item">
+                  <h4>{feature.title}</h4>
+                  <p>{feature.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
