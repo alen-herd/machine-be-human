@@ -136,14 +136,16 @@ function WaaromNu() {
     klant: {
       label: 'Voor de klant',
       left: {
-        title: 'Wat bieden wij jouw organisatie?',
-        intro: 'AI is inmiddels een kritische onderwerp voor bijna elke organisatie. Machine, be Human helpt jouw bedrijf AI verantwoord, effectief en mensgericht in te zetten.',
-        paragraph: 'Je kunt ons inzetten voor discovery & strategieontwikkeling, het bouwen van AI-oplossingen, of trainingen van je team. Met Machine, be Human krijg je een partner die AI werkelijk laat werken in je organisatie.'
+        title: 'Wat we onze klanten bieden',
+        intro: 'We bieden geen slimme workflows, ook geen agents. We bieden een manier waarin mensen AI omarmen.',
+        paragraph: 'Iedere organisatie wil met AI werken. Er heerst grotendeels FOMO, want de \'experts\' beweren dat je alles kunt automatiseren. Maar AI is niet het doel, het is een middel. Wij helpen onze klanten AI strategisch in te zetten op onderdelen die voor hen het verschil maken.'
       },
       right: [
-        { title: 'AI Strategy & Implementation', desc: 'Je krijgt partners die jouw organisatie helpen AI verantwoord in te zetten. Van discovery tot operationalisering.' },
-        { title: 'Custom AI Solutions', desc: 'Maatwerk AI-tools en -agents die passen bij jouw specifieke uitdagingen en processen. Gebouwd in samenwerking met jouw team.' },
-        { title: 'AI Adoption Support', desc: 'Implementatie is slechts het begin. We begeleiden je team in het daadwerkelijk gebruik van AI, met trainingen, ondersteuning en governance.' }
+        { title: 'Strategie', desc: 'Wat moet de mens blijven doen? En wat besteed je uit aan AI? Dat begint niet bij implementeren van agents, maar bij een scherpe discovery. We brengen in kaart wat jouw organisatie doet, hoe AI daar nu in werkt en waar het vooral aan kan bijdragen. Van beleid, tot aan implementatie. Dit is het plan.' },
+        { title: 'Visie & beleid', desc: 'Hoe wordt de data door AI verwerkt? Welke LLM gebruiken medewerkers? Hoe faciliteert jouw bedrijf dit gebruik? Voldoen we aan wetgeving (AI Act) en hebben we richtlijnen rondom AI gebruik in onze processen? Machine, be Human helpt het leiderschap dit scherp te stellen en uit te rollen in de organisatie.' },
+        { title: 'Implementatie', desc: 'Welke tool-stack kies je als organisatie en hoe richt je dit in?' },
+        { title: 'Jetpacks', desc: 'Wij zien een jetpack als een versneller voor jouw werk. Denk aan een web-copywriter, een lead qualifier, een offerte-builder. Een jetpack verricht een specifieke taak volgens de richtlijnen van de klant. Iets wat mensen in staat stelt sneller te werken terwijl de kwaliteit hoog blijft.' },
+        { title: 'Consultancy, support & training', desc: 'Steeds meer mensen in het bedrijf gebruiken nu AI. Waar lopen ze tegenaan? Wat werkt wel en niet goed? Welke medewerkers tonen weerstand of vinden het lastig? Machine, be Human blijft als partner ondersteuning bieden om de AI adoptie te borgen.' }
       ]
     },
     groep: {
