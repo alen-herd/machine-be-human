@@ -203,11 +203,11 @@ h1,h2,h3,h4,h5,h6,p,li{ color:var(--mbh-text); }
 .benefits-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:48px; }
 @media (max-width:820px){ .benefits-grid{ grid-template-columns:1fr; gap:24px; } }
 .benefits-col__head{ font-size:clamp(18px, 2vw, 22px); font-weight:var(--fw-bold); color:var(--mbh-coral); margin:0 0 24px; }
-.benefits-list{ list-style:none; padding:0; margin:0; }
-.benefits-list li{ margin:0 0 20px; }
-.benefits-list li:last-child{ margin-bottom:0; }
-.benefits-list b{ display:block; font-size:17px; color:var(--mbh-text); font-weight:var(--fw-medium); margin-bottom:6px; }
-.benefits-list span{ display:block; font-size:16px; line-height:1.55; color:var(--mbh-text-2); }
+.feature-cards{ display:flex; flex-direction:column; gap:14px; }
+.feature-card{ background:var(--mbh-panel); border:1px solid var(--mbh-hair); border-radius:var(--radius-lg); padding:16px; }
+.feature-card:hover{ border-color:var(--mbh-hair-2); }
+.feature-card h4{ font-size:16px; font-weight:var(--fw-bold); color:var(--mbh-text); margin:0 0 8px; }
+.feature-card p{ font-size:15px; line-height:1.55; color:var(--mbh-text-2); margin:0; }
 
 .duo{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:48px; }
 @media (max-width:820px){ .duo{ grid-template-columns:1fr; } }
@@ -638,3 +638,22 @@ h1,h2,h3,h4,h5,h6,p,li{ color:var(--mbh-text); }
 .tlv__badge{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; background:var(--mbh-coral); color:#fff; border-radius:var(--radius-pill); padding:3px 9px; font-weight:var(--fw-bold); }
 .tlv__title{ font-size:clamp(18px,2vw,22px); font-weight:var(--fw-bold); color:#fff; margin:0 0 6px; letter-spacing:-.01em; }
 .tlv__detail{ font-size:15px; line-height:1.55; color:var(--mbh-text-2); margin:0; max-width:60ch; }
+
+/* =====================================================================
+   SECTION 9 — Mike intro
+   ===================================================================== */
+.mike-intro{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-top:48px; }
+@media (max-width:1024px){ .mike-intro{ grid-template-columns:1fr; gap:32px; } }
+.mike-intro__header{ margin-bottom:32px; }
+.mike-intro__header h3{ font-size:clamp(28px, 3vw, 42px); font-weight:var(--fw-bold); color:var(--mbh-text); margin:0 0 8px; line-height:1.2; }
+.mike-intro__title{ font-size:17px; font-weight:var(--fw-medium); color:var(--mbh-coral); margin:0; }
+.mike-intro__start{ font-size:15px; color:var(--mbh-text-2); margin:2px 0 0; }
+.mike-intro__bio p{ font-size:16px; line-height:1.65; color:var(--mbh-text-2); margin:0 0 18px; text-wrap:pretty; }
+.mike-intro__bio p:last-child{ margin-bottom:0; }
+.mike-intro__photo img{ width:100%; height:auto; border-radius:var(--radius-lg); display:block; }
+
+.team-collective{ background:var(--mbh-panel); border:1px solid var(--mbh-hair); border-radius:var(--radius-lg); padding:32px; margin-top:48px; }
+.team-collective h3{ font-size:22px; font-weight:var(--fw-bold); color:var(--mbh-text); margin:0 0 16px; }
+.team-collective p{ font-size:16px; line-height:1.65; color:var(--mbh-text-2); margin:0 0 16px; text-wrap:pretty; }
+.team-collective p:last-child{ margin-bottom:0; }
+.team-collective strong{ color:var(--mbh-text); font-weight:var(--fw-medium); }

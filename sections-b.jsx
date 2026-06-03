@@ -103,15 +103,15 @@ function HoeHetWerkt() {
   const faqs = [
     {
       q: 'Gaat mijn klant nu naar MBH in plaats van naar ons?',
-      a: 'Nee. De klant blijft bij jouw bureau. MBH is de specialist die jij inzet — net als je any other expert. Jij behoudt de relatie, jij voert uit, jij factuurt.'
+      a: 'Alle klanten zijn van de groep, dus daarmee ook van elk label. Of een klant primair naar Machine, be Human gaat, hangt af van de scope van het werk. Dit zal alleen gebeuren als het merendeel van het work daar afnemen — en dan is het voor de klant ook logischer.'
     },
     {
-      q: 'Waarom zou mijn bureau hiermee willen werken?',
-      a: 'Omdat je sterker aan tafel zit, omdat je omzet genereert zonder zelf AI-expert te moeten zijn, en omdat het werk beter wordt. MBH haalt repetitief werk eraf, jij concentreert je op strategie en relatie.'
+      q: 'Wat levert het mijn bureau op wanneer we een klant naar Machine, be Human verwijzen?',
+      a: 'Het gaat erom dat we onze klanten zo goed mogelijk helpen. Wanneer je merkt dat een klant uitdagingen of vragen heeft rondom AI, dan is het krachtig dat je daar als bureau antwoord op hebt. Je versterkt daarmee je relatie en je waarde.'
     },
     {
-      q: 'Hoe verdient MBH geld als het allemaal via bureaus gaat?',
-      a: 'MBH werft ook zelf. Bureaus zijn sterke entry points, maar niet de enige weg. MBH bouwt een eigen positionering, content en outreach — klanten kunnen rechtstreeks binnenkomen.'
+      q: 'Hoe kan ik een klant doorverwijzen, en wanneer doe ik dit?',
+      a: 'Hier werken we nog aan — we zullen concrete herkenningspunten en richtlijnen ontwikkelen. Wanneer onze diensten en proposities concreter worden, delen we die met jullie. Tot die tijd: neem het gerust op in je gesprekken.'
     },
   ];
 

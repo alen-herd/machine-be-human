@@ -150,14 +150,14 @@ function WaaromNu() {
           {benefits.map((b, i) => (
             <div key={i} className="benefits-col reveal" data-d={i + 1}>
               <h3 className="benefits-col__head">{b.col}</h3>
-              <ul className="benefits-list">
+              <div className="feature-cards">
                 {b.items.map(([title, desc], j) => (
-                  <li key={j}>
-                    <b>{title}</b>
-                    <span>{desc}</span>
-                  </li>
+                  <div key={j} className="feature-card">
+                    <h4>{title}</h4>
+                    <p>{desc}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>

@@ -60,50 +60,61 @@ function Serieus() {
   );
 }
 
-/* ============================== 9 — WIE HET RUNT (TEAM) ============================== */
-function Person({ slotId, role, name, line, featured }) {
-  return (
-    <article className={`person reveal ${featured ? 'person--feature' : ''}`}>
-      <div className="person__photo">
-        <image-slot id={slotId} shape="rect" placeholder={`Foto ${name.split(' ')[0]} (placeholder)`}></image-slot>
-      </div>
-      <div className="person__body">
-        <div className="person__role">{role}</div>
-        <h4 className="person__name">{name}</h4>
-        <p className="person__line">{line}</p>
-      </div>
-    </article>
-  );
-}
-
-function WieRunt() {
-  const lead = { slotId: 'team-mike', role: 'Managing Director · start half juni', name: 'Mike van den Burg',
-    line: 'Sluit half juni aan als Managing Director en wordt de motor van MBH in de opstartfase. Eerder bouwde hij mee bij onder andere Bitfactory, Dept en Redkiwi.' };
-  const team = [
-    { slotId: 'team-alen', role: 'AI Consultant', name: 'Alen', line: 'Vertaalt klantvraag naar de juiste AI-aanpak en begeleidt de discovery.' },
-    { slotId: 'team-bart', role: 'AI Engineer', name: 'Bart', line: 'Bouwt agents, integraties en de techniek onder de oplossingen.' },
-    { slotId: 'team-thijs', role: 'AI Engineer', name: 'Thijs', line: 'Ontwikkelt en onderhoudt de Jetpacks en custom implementaties.' },
-    { slotId: 'team-koen', role: 'Creative Director', name: 'Koen', line: 'Bewaakt het verhaal, de positionering en het mensgerichte gezicht van MBH.' },
-    { slotId: 'team-lilian', role: 'Office Manager', name: 'Lilian', line: 'Houdt de organisatie soepel draaiend, zodat het team kan bouwen.' },
-    { slotId: 'team-tessa', role: 'AI Creator', name: 'Tessa', line: 'Maakt content en concepten waarin AI en menselijke creativiteit samenkomen.' },
-  ];
+/* ============================== 9 — WIE HET RUNT (MIKE) ============================== */
+function MikeIntro() {
   return (
     <section className="section" id="team" data-screen-label="09 Wie het runt">
       <div className="shell">
         <div className="reveal">
           <div className="eyebrow"><span className="eyebrow__num">09</span><span className="eyebrow__bar"></span>Wie het runt</div>
-          <h2 className="sec-title">Dit is het team — zoals we het naar buiten brengen.</h2>
+          <h2 className="sec-title">Mike — en jullie.</h2>
           <p className="sec-lead team-lead">
-            We hebben nagedacht over hoe we ons profileren. MBH start met mensen die we al kennen uit de groep, met
-            Mike als motor in de opstartfase. Dit team is ook een uithangbord: deze mensen verdwijnen <strong>niet</strong>
-            uit hun huidige teams, maar doen mee in de projecten van MBH.
+            Machine, be Human krijgt een dedicated Managing Director. Maar dit is een initiatief van de hele groep.
           </p>
         </div>
 
-        <div className="team-grid">
-          {[lead, ...team].map(p => <Person key={p.slotId} {...p} featured={p === lead} />)}
+        <div className="mike-intro reveal" data-d="1">
+          <div className="mike-intro__content">
+            <div className="mike-intro__header">
+              <h3>Mike van der Burg</h3>
+              <p className="mike-intro__title">Managing Director</p>
+              <p className="mike-intro__start">Start half juni</p>
+            </div>
+
+            <div className="mike-intro__bio">
+              <p>
+                Mike is iemand die opgewonden raakt van vragen als: waarom doen mensen wat ze doen, en hoe kan technologie daar
+                helpen? Hij staat op het snijvlak van technologie, innovatie en menselijk gedrag — op zoek naar ideeën die écht
+                impact maken.
+              </p>
+              <p>
+                Met een achtergrond in technologie, een fascinatie voor psychologie en meer dan 20 jaar ervaring in de digitale
+                wereld, werkte hij eerder bij onder meer Bitfactory, Dept en Redkiwi. Zijn strategische blik en generalist-perspectief
+                helpen hem mensen en technologie met elkaar te verbinden.
+              </p>
+              <p>
+                Zijn kernovertuiging: succesvolle innovatie begint altijd met mensen. Niet met wat technisch mogelijk is, maar met
+                wat écht waarde toevoegt.
+              </p>
+            </div>
+          </div>
+
+          <div className="mike-intro__photo">
+            <img src="assets/Mike.jpeg" alt="Mike van der Burg" />
+          </div>
         </div>
-        <p className="team-foot reveal">Dit team bouwt MBH op. Hybride, van verschillende labels, maar volledig committed.</p>
+
+        <div className="team-collective reveal" data-d="2">
+          <h3>En de rest van de groep</h3>
+          <p>
+            Machine, be Human is niet alleen Mike — het is een initiatief van ons allemaal. Iedereen kan hier een bijdrage leveren:
+            binnen lopende projecten, het uitwerken van processen, het vormgeven van diensten. We zijn al in gesprek met enkele van jullie.
+          </p>
+          <p>
+            <strong>Wil je graag aan Machine, be Human bijdragen?</strong> Laat het ons weten. MBH is van de groep, en daarmee ook van
+            jullie allemaal.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -282,4 +293,4 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Person, WieRunt, Serieus, Tijdlijn, Klanten, OpenQ, OpenEnAsk, Footer });
+Object.assign(window, { MikeIntro, Serieus, Tijdlijn, Klanten, OpenQ, OpenEnAsk, Footer });
