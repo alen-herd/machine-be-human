@@ -21,7 +21,7 @@ function Serieus() {
       'Geïnvesteerd kapitaal geeft de ruimte om te bouwen zonder dat elke euro zich meteen moet terugverdienen.'],
     ['Eigen locatie', 'In Dordrecht',
       'Een eigen plek geeft het team focus en een thuis om klanten te ontvangen.'],
-    ['Hybride aansluiting vanuit Elephant en Raft', 'De mensen die het meest ver zijn met AI',
+    ['Hybride aansluiting vanuit Elephant, Raft & Mosquito', 'De mensen die het meest ver zijn met AI',
       'Onze sterkste AI-mensen versterken MBH zonder hun huidige team los te laten — kennis stroomt direct door.'],
     ['Concrete launch-deadline', '18 juni sneak peek · Q3 2026 officiële launch',
       'Een harde datum dwingt scherpte af en maakt het tastbaar, in plaats van "ooit".'],

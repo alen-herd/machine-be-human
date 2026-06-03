@@ -128,7 +128,7 @@ function WaaromNu() {
         paragraph: 'Je kunt meedoen in AI klantprojecten, workshops & trainingen volgen, of een specifiek vraagstuk vanuit je eigen bureau neerleggen bij Machine, be Human. Dit zal jouw ontwikkeling op AI ook in versnelling zetten.'
       },
       right: [
-        { title: 'AI Agents voor jouw vakgebied', desc: 'We ontwikkelen agents die jouw werk sneller, makkelijker en beter kunnen maken. Dit ontwikkelen we samen met jouw input.' },
+        { title: 'AI Projecten', desc: 'Je krijgt meer ruimte om mee te doen in AI-gerelateerde projecten. Op zowel development, design, content, marketing en strategie.' },
         { title: 'AI Helpdesk', desc: 'Welke tool moet je gebruiken? Op welke manier? Een klant die een kritische vraag stelt over AI? Machine, be Human is jouw vangnet om deze vragen op te vangen en je te ondersteunen.' },
         { title: 'AI Geletterdheid', desc: 'Hoe werken LLM\'s? Wat is de AI Act? Hoe bouw ik een agent? Doordat we meer met AI bezig zijn, gaan we ook steeds betere antwoorden geven. Dit zorgt dat jouw AI geletterdheid groeit — essentieel voor je persoonlijke ontwikkeling.' }
       ]
@@ -141,9 +141,9 @@ function WaaromNu() {
         paragraph: 'Iedere organisatie wil met AI werken. Er heerst grotendeels FOMO, want de \'experts\' beweren dat je alles kunt automatiseren. Maar AI is niet het doel, het is een middel. Wij helpen onze klanten AI strategisch in te zetten op onderdelen die voor hen het verschil maken.'
       },
       right: [
-        { title: 'Strategie', desc: 'Wat moet de mens blijven doen? En wat besteed je uit aan AI? Dat begint niet bij implementeren van agents, maar bij een scherpe discovery. We brengen in kaart wat jouw organisatie doet, hoe AI daar nu in werkt en waar het vooral aan kan bijdragen.' },
-        { title: 'Visie & beleid', desc: 'Hoe wordt de data door AI verwerkt? Welke LLM gebruiken medewerkers? Machine, be Human helpt het leiderschap dit scherp te stellen en uit te rollen. Voldoen we aan wetgeving (AI Act)?' },
-        { title: 'Adoptie & support', desc: 'Steeds meer mensen in het bedrijf gebruiken nu AI. Machine, be Human blijft als partner ondersteuning bieden om de AI adoptie te borgen. Trainingen, consultancy en begeleiding.' }
+        { title: 'Bredere partnership', desc: 'Onze klant werkt al met ons samen op gebied van marketing, hun website, content en/of branding. Maar ze hebben ook steeds meer vragen over AI en hoe ze dit kunnen gebruiken voor hun website, campagnes of andere zaken. Met deze vragen kunnen ze nu bij ons terecht.' },
+        { title: 'Duidelijkheid & vertrouwen', desc: 'Aanvullend op het eerste punt, hebben wij nu 1 centrale plek waar we de klant naartoe kunnen verwijzen. We hoeven dus geen "nee" te zeggen. Dit schept vertrouwen bij de klant en neemt onzekerheid weg.' },
+        { title: 'Strategisch inzetten van AI', desc: 'Iedere klant zet AI al in, maar weet nog niet zo goed wat de beste manier is. Dit creëert wildgroei van tools, experimenten, en mensen die of voor zijn, of juist tegen zijn (omdat het niet werkt). Machine, be Human helpt de klant om AI vanuit een strategisch punt in te zetten.' }
       ]
     },
     groep: {
